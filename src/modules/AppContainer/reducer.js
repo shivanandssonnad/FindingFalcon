@@ -8,12 +8,12 @@ import {
 import { cloneDeep } from "lodash-es";
 import ApplicationState from "../Classes/ApplicationState";
 
-function initReducer(args: any) {
+function initReducer(args) {
   const { allowedAttempts } = args || {};
   return new ApplicationState({ allowedAttempts });
 }
 
-function reducer(state: ApplicationState, action: any) {
+function reducer(state, action) {
   console.log(action);
   switch (action.type) {
     case INITIALISE: {
