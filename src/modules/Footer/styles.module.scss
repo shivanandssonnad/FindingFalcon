@@ -1,0 +1,19 @@
+.footer-container {
+  position: absolute;
+  bottom: 0em;
+  padding: 1em 0em; 
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  & > span {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .footer-container {
+    position: sticky;
+    
+  }
+}

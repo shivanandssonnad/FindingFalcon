@@ -1,0 +1,10 @@
+.header-container {
+  display: flex;
+  justify-content: flex-end;
+  & > span {
+    padding: 0px 10px;
+  }
+  & > span:not(:last-child) {
+    border-right: 1px solid;
+  }
+}
