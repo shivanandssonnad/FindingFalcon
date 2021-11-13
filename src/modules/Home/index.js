@@ -22,10 +22,7 @@ function Home() {
   }
 
   function findFalcone() {
-    const timeTaken = attempts
-      .map((each) => each.time)
-      .reduce((acc, curr) => (curr ? acc + curr : acc), 0);
-    dispatch(Action.setTimeTaken(timeTaken));
+    dispatch(Action.calculateTimeTaken());
     navigate("/find_falcone");
   }
 

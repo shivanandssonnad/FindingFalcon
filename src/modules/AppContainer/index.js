@@ -16,6 +16,8 @@ function AppContainer(props) {
     reducer.initReducer
   );
 
+  console.log(state);
+
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <Header />

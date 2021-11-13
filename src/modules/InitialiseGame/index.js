@@ -17,50 +17,26 @@ function InitialiseGame() {
   }, []);
 
   const getPlanets = React.useCallback(() => {
-    return FindFalconService.getPlanets()
-      .then((res) => res.data || [])
-      .then((res) =>
-        res.map((each) => ({
-          label: each.name,
-          value: each.name,
-          subLabel: `Distance: ${each.distance}`,
-          distance: each.distance,
-          selected: false
-        }))
-      );
+    return FindFalconService.getPlanets().then((res) => res.data || []);
   }, []);
 
   const getVehicles = React.useCallback(() => {
-    return FindFalconService.getVehicles()
-      .then((res) => res.data || [])
-      .then((res) =>
-        res.map((each) => ({
-          ...each,
-          label: each.name,
-          value: each.name,
-          availableCount: each.total_no,
-          subLabel: `Count: ${each.total_no}, Speed: ${each.speed}, Dist: ${each.max_distance}`
-        }))
-      );
+    return FindFalconService.getVehicles().then((res) => res.data || []);
   }, []);
 
   const getInitData = React.useCallback(() => {
-    return Promise.all([getToken(), getPlanets(), getVehicles()]).then(
-      ([token, planets, vehicles]) => {
-        dispatch(Action.initialise({ token, planets, vehicles }));
-      }
-    );
-  }, [getToken, getVehicles, getPlanets, dispatch]);
+    return Promise.all([getToken(), getPlanets(), getVehicles()]);
+  }, [getToken, getPlanets, getVehicles]);
 
   React.useEffect(() => {
-    dispatch(
-      Action.initData(
-        reducer.initReducer({ allowedAttempts: ALLOWED_ATTEMPTS })
-      )
-    );
-    getInitData().then((res) => {
-      navigate("/home");
-    });
+    dispatch(Action.initData(ALLOWED_ATTEMPTS));
+    getInitData()
+      .then(([token, planets, vehicles]) => {
+        dispatch(Action.initialise({ token, planets, vehicles }));
+      })
+      .then((res) => {
+        navigate("/home");
+      });
   }, [navigate, getInitData, dispatch]);
 
   return <div>Initialising elements for you...</div>;

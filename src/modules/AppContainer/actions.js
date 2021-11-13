@@ -1,9 +1,9 @@
 import {
+  CALCULATE_TIME_TAKEN,
   INITIALISE,
   INIT_DATA,
   SELECT_PLANET,
-  SELECT_VEHICLE,
-  SET_TIME_TAKEN
+  SELECT_VEHICLE
 } from "./constants";
 
 function initialise(payload) {
@@ -27,10 +27,9 @@ function selectVehicle(payload) {
   };
 }
 
-function setTimeTaken(payload) {
+function calculateTimeTaken() {
   return {
-    type: SET_TIME_TAKEN,
-    payload
+    type: CALCULATE_TIME_TAKEN
   };
 }
 
@@ -45,7 +44,7 @@ const Action = {
   initialise,
   selectPlanet,
   selectVehicle,
-  setTimeTaken,
+  calculateTimeTaken,
   initData
 };
 

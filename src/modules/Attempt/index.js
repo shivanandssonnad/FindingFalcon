@@ -89,6 +89,12 @@ function Attempt(props) {
 
   return (
     <div>
+      <Text
+        className="display-row-center margin-bottom-15"
+        type={Text.TYPE.LABEL}
+      >
+        Attempt {index + 1}
+      </Text>
       {renderSelectPlanet()}
       {renderSelectVehicle()}
       {renderTimeTaken()}
