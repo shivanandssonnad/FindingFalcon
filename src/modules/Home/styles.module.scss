@@ -1,0 +1,6 @@
+.attempts-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 1em;
+  min-height: 14em;
+}
