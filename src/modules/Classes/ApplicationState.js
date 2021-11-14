@@ -69,7 +69,6 @@ class ApplicationState {
   onSelectVehicle = (attemptId, vehicle) => {
     const updatedAttempt = this.attempts[attemptId].onSelectVehicle(vehicle);
     if (updatedAttempt.updated) {
-      this.handleRefreshPlanetList(updatedAttempt);
       this.handleRefreshVehicleList(updatedAttempt);
       updatedAttempt.updated = false;
     }

@@ -30,6 +30,7 @@ class Attempt {
     if (!vehicle) return this;
     const { value, speed } = vehicle || {};
     if (value === this.vehicle) return this;
+    this.oldVehicle = this.vehicle;
     this.vehicle = value;
     this.speed = speed;
     this.time = this.distance / speed;
